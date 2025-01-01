@@ -1,0 +1,4 @@
+faker
+pandas
+pyspark
+psycopg2
