@@ -1,6 +1,13 @@
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, month, year
 
+spark = SparkSession.builder \
+    .appName("E-commerce Data Processing") \
+    .config("spark.sql.warehouse.dir", "/tmp") \
+    .config("spark.hadoop.fs.defaultFS", "file:///") \
+    .config("spark.hadoop.fs.file.impl.disable.cache", "true") \
+    .getOrCreate()
+
 # Iniciar sessão Spark
 spark = SparkSession.builder     .appName("E-commerce Data Processing")     .getOrCreate()
 
