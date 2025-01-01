@@ -1,3 +1,4 @@
+import os
 import random
 import pandas as pd
 from faker import Faker
@@ -38,6 +39,9 @@ def generate_sales(customers, products, num_sales=5000):
     return pd.DataFrame(data)
 
 if __name__ == "__main__":
+    # Garantir que o diretório ../data existe
+    os.makedirs('../data', exist_ok=True)
+    
     customers = generate_customers()
     products = generate_products()
     sales = generate_sales(customers, products)
