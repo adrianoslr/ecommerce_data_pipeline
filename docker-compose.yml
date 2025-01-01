@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  spark:
+    build: .
+    container_name: ecommerce_pipeline
+    environment:
+      - HADOOP_HOME=/opt/hadoop
+      - SPARK_HOME=/opt/spark
+    ports:
+      - "8888:8888"  # Para acessar Jupyter (se configurado no futuro)
+      - "4040:4040"  # Interface web do Spark
+    volumes:
+      - ./data:/app/data
+    command: ["python3", "scripts/data_processing.py"]
